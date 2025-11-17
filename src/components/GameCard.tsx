@@ -1,10 +1,9 @@
 import React, { useState, useCallback } from "react";
 import "./GameCard.css";
-import type { Game, Studio } from "../types/lobby";
+import type { Game } from "../types/lobby";
 
 interface Props {
   game: Game;
-  studio?: Studio;
   imageHeight?: number;
   index?: number; // used for LCP optimizations above the fold
   isAboveTheFold?: boolean;
@@ -12,7 +11,6 @@ interface Props {
 
 const GameCardInner: React.FC<Props> = ({
   game,
-  studio,
   imageHeight = 120,
   index = 0,
   isAboveTheFold,
@@ -85,11 +83,6 @@ const GameCardInner: React.FC<Props> = ({
           </div>
         )}
       </div>
-
-      <div className="meta">
-        <div className="name">{game.name}</div>
-        <div className="studio">{studio?.name || "Unknown Studio"}</div>
-      </div>
     </div>
   );
 };
@@ -101,7 +94,6 @@ export default React.memo(GameCardInner, (prev, next) => {
     prev.game.imageUrl === next.game.imageUrl &&
     prev.index === next.index &&
     prev.isAboveTheFold === next.isAboveTheFold &&
-    prev.imageHeight === next.imageHeight &&
-    (prev.studio?.id ?? null) === (next.studio?.id ?? null)
+    prev.imageHeight === next.imageHeight
   );
 });

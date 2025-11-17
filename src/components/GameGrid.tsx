@@ -36,7 +36,6 @@ function Row({
   index,
   style,
   games,
-  studios,
   columnCount,
   columnWidth,
   gap,
@@ -68,15 +67,13 @@ function Row({
     }
 
     const g = games[gameIndex];
-    const studio = studios.find((s) => s.id === g.studioId);
     const isAbove = gameIndex < aboveFoldCount;
 
     return (
       <div key={key} style={cellStyle} role="listitem">
         <GameCard
           game={g}
-          studio={studio}
-          imageHeight={120}
+          imageHeight={160}
           index={gameIndex}
           isAboveTheFold={isAbove}
         />
@@ -136,9 +133,8 @@ const GameGrid: React.FC<Props> = ({ games, studios, loading, error }) => {
   const rowCount = Math.ceil(games.length / columnCount);
 
   // image + meta + gap. Keep imageHeight fixed at 120px per requirement.
-  const imageHeight = 120;
-  const metaHeight = 44; // approximate height for name + studio + padding
-  const rowHeight = Math.ceil(imageHeight + metaHeight + gap);
+  const imageHeight = 160;
+  const rowHeight = Math.ceil(imageHeight + gap);
   // how many items (cards) are above the fold / initially visible
   const visibleRows = Math.max(1, Math.ceil(containerHeight / rowHeight));
   const aboveFoldCount = visibleRows * columnCount;
