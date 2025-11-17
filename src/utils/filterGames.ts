@@ -45,7 +45,7 @@ export function filterGames(allGames: Game[], ctx: FilterContext): Game[] {
       if (sBlocked && sBlocked.has(effCurrency)) return false;
 
       // game-level blockedCurrencies (string or array)
-      const gb = (g as unknown as { blockedCurrencies?: string | string[] | null }).blockedCurrencies;
+      const gb = (g as any).blockedCurrencies;
       if (gb) {
         const parts = parseBlockedString(gb);
         if (parts.has(effCurrency)) return false;
@@ -61,55 +61,3 @@ export function filterGames(allGames: Game[], ctx: FilterContext): Game[] {
 }
 
 export default filterGames;
-
-/**
- * Return set of tag ids present in the game list. Useful to populate category selector (includes ALL outside).
- */
-export function getAvailableTagIds(allGames: Game[]): Set<number> {
-  const s = new Set<number>();
-  for (const g of allGames) {
-    if (Array.isArray(g.gameTags)) {
-      for (const t of g.gameTags) {
-        s.add(t);
-      }
-    }
-  }
-  return s;
-}
-
-/**
- * Return a set of studioIds that have at least one game matching optional `tagId` and optional `effCurrency`.
- * - If `tagId` is null/undefined, matches any tag.
- * - If `effCurrency` is provided, games (and their studio) that are blocked for that currency are skipped.
- * This helps the UI restrict the studio dropdown to only studios that actually have games for the selected category/currency.
- */
-export function getStudiosForTag(
-  allGames: Game[],
-  tagId?: number | null,
-  effCurrency?: string,
-  studioBlocked?: Map<number, Set<string>>
-): Set<number> {
-  const res = new Set<number>();
-  const currency = effCurrency ? String(effCurrency).trim().toUpperCase() : "";
-
-  for (const g of allGames) {
-    if (tagId != null && Array.isArray(g.gameTags) && !g.gameTags.includes(tagId)) continue;
-
-    if (currency) {
-      // studio blocked map (external)
-      const sBlocked = studioBlocked?.get(g.studioId);
-      if (sBlocked && sBlocked.has(currency)) continue;
-
-      // game-level blockedCurrencies
-      const gb = (g as unknown as { blockedCurrencies?: string | string[] | null }).blockedCurrencies;
-      if (gb) {
-        const parts = parseBlockedString(gb);
-        if (parts.has(currency)) continue;
-      }
-    }
-
-    res.add(g.studioId);
-  }
-
-  return res;
-}
