@@ -51,15 +51,52 @@ export default function useDerivedLobbyData({
 
   // Only show studios that have games in the selected category (if a category is selected)
   const visibleStudios = useMemo(() => {
-    if (selectedTagId === null) return studios;
+    // If no tag selected and no currency restriction, return all studios
+    const currency = selectedCurrencyEffective
+      ? selectedCurrencyEffective.toUpperCase().trim()
+      : "";
+
+    if (selectedTagId === null && !currency) return studios;
+
     const studioIds = new Set<number>();
+
     for (const g of games) {
-      if (Array.isArray(g.gameTags) && g.gameTags.includes(selectedTagId)) {
-        studioIds.add(g.studioId);
+      // tag filtering (if selected)
+      if (selectedTagId !== null) {
+        if (!Array.isArray(g.gameTags) || !g.gameTags.includes(selectedTagId)) continue;
       }
+
+      // currency filtering (if selected)
+      if (currency) {
+        // external studio blocked map
+        const sBlocked = studioBlockedCurrencies.get(g.studioId);
+        if (sBlocked && sBlocked.has(currency)) continue;
+
+        // game-level blocked currencies
+        const gb = (g as unknown as { blockedCurrencies?: string | string[] | null }).blockedCurrencies;
+        if (gb) {
+          const parts = new Set<string>();
+          if (typeof gb === "string") {
+            for (const part of gb.split(",")) {
+              const p = String(part).trim().toUpperCase();
+              if (p) parts.add(p);
+            }
+          } else if (Array.isArray(gb)) {
+            for (const p of gb) parts.add(String(p).trim().toUpperCase());
+          }
+          if (parts.has(currency)) continue;
+        }
+
+        // studio allowlist: if present and non-empty, require membership
+        const allow = studioCurrencyAllowlist.get(g.studioId);
+        if (allow && allow.size > 0 && !allow.has(currency)) continue;
+      }
+
+      studioIds.add(g.studioId);
     }
+
     return studios.filter((s) => studioIds.has(s.id));
-  }, [studios, games, selectedTagId]);
+  }, [studios, games, selectedTagId, selectedCurrencyEffective, studioBlockedCurrencies, studioCurrencyAllowlist]);
 
   const filteredGames = useMemo(() => {
     return games.filter((g: Game) => {
