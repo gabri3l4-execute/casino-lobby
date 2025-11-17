@@ -62,6 +62,7 @@ const Lobby: React.FC = () => {
 
   return (
     <div className="lobby-container">
+      <h1>Casino Lobby</h1>
       <Filters
         currencies={allowedCurrencies}
         selectedCurrency={selectedCurrencyEffective}

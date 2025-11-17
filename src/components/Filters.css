@@ -21,7 +21,7 @@
 
 .filters-left {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -37,8 +37,8 @@
 .tag-list {
   width: 100%;
   display: flex;
-  gap: 12px;
-  padding: 0;
+  gap: 1rem;
+  padding: 0 0 0.5rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
 }
