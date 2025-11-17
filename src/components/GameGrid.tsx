@@ -3,6 +3,7 @@ import type { CSSProperties, ReactElement } from "react";
 import "./GameGrid.css";
 import type { Game, Studio } from "../types/lobby";
 import GameCard from "./GameCard";
+import GameCount from "./GameCount";
 import { List } from "react-window";
 
 interface Props {
@@ -145,9 +146,7 @@ const GameGrid: React.FC<Props> = ({ games, studios, loading, error }) => {
   return (
     <div>
       <div className="game-grid-header">
-        <span className="game-count">
-          Showing {games.length} game{games.length !== 1 ? "s" : ""}
-        </span>
+        <GameCount count={games.length} />
       </div>
 
       <div
