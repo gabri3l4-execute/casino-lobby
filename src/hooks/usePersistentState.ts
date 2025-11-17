@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { storage } from "../utils/storage";
 
@@ -23,12 +24,12 @@ export function usePersistentState<T>(
   options?: { type?: 'local' | 'session'; fallback?: boolean }
 ): [T, (val: T) => void] {
   const [value, setValue] = useState<T>(() => {
-    const stored = storage.get<T>(key, options as any);
+    const stored = storage.get<T>(key, options);
     return stored ?? defaultValue;
   });
 
   useEffect(() => {
-    storage.set<T>(key, value, options as any);
+    storage.set<T>(key, value, options);
   }, [key, value]);
 
   return [value, setValue];

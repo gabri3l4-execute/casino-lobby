@@ -2,10 +2,13 @@ export interface Game {
   id: number;
   name: string;
   imageUrl?: string;
+  image?: string;
+  thumbnailUrl?: string;
+  thumbnail?: string;
   studioId: number;
   gameTags?: number[];
-  translations?: any[];
-  [k: string]: any;
+  translations?: unknown[];
+  [k: string]: unknown;
 }
 
 export interface Studio {
@@ -17,7 +20,7 @@ export interface Studio {
   imageUrl?: string;
   blockedCountries?: string;
   blockedCurrencies?: string;
-  [k: string]: any;
+  [k: string]: unknown;
 }
 
 export interface Tag {
@@ -25,7 +28,7 @@ export interface Tag {
   name: string;
   nameId?: string;
   display?: boolean;
-  [k: string]: any;
+  [k: string]: unknown;
 }
 
 export interface CurrencyEntry {
@@ -39,5 +42,5 @@ export interface LobbyData {
   studios: Studio[];
   tags: Tag[];
   currencies: CurrencyEntry[];
-  [k: string]: any;
+  [k: string]: unknown;
 }
