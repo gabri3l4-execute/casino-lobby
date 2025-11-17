@@ -1,3 +1,10 @@
+.filters-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: #242424;
+}
 .filters {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -29,8 +36,11 @@
 
 .tag-list {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
 }
 
 .tag-btn {
@@ -39,7 +49,7 @@
 }
 
 .tag-btn.active {
-  background: #007bff;
+  background: hotpink;
   color: white;
-  border-color: #007bff;
+  border-color: hotpink;
 }

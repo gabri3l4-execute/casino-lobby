@@ -26,7 +26,7 @@ const Filters: React.FC<Props> = ({
   onStudioChange,
 }) => {
   return (
-    <div className="controls-row">
+    <div className="filters-container"><div className="controls-row">
       <div className="filters-left">
         <label>
           <select
@@ -84,7 +84,7 @@ const Filters: React.FC<Props> = ({
             </button>
           ))}
         </div>
-    </div>
+    </div></div>
   );
 };
 

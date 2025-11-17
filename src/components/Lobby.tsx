@@ -5,7 +5,6 @@ import useLobbyData from "../hooks/useLobbyData";
 import useDerivedLobbyData from "../hooks/useDerivedLobbyData";
 import "./Lobby.css";
 import { usePersistentState } from "../hooks/usePersistentState";
-import CategoryBar from "./CategoryBar";
 
 const Lobby: React.FC = () => {
   const { games, studios, tags, currencyEntries, loading, error } =
@@ -63,12 +62,6 @@ const Lobby: React.FC = () => {
 
   return (
     <div className="lobby-container">
-      <CategoryBar
-        tags={tags}
-        selectedTagId={selectedTagId}
-        onTagChange={handleTagChange}
-      />
-
       <Filters
         currencies={allowedCurrencies}
         selectedCurrency={selectedCurrencyEffective}
