@@ -5,8 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean && npm run check-types && npm run lint",
+    "build": "npm run prebuild && vite build",
+    "build:prod": "npm ci && npm run build",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint . --ext .ts,.tsx",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -14,6 +20,8 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.5",
     "@mui/material": "^7.3.5",
+    "@tanstack/react-query": "^4.35.0",
+    "@tanstack/react-query-devtools": "^4.35.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-window": "^2.2.3"
@@ -28,8 +36,11 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "rimraf": "^6.1.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.3",
-    "vite": "^7.2.2"
+    "vite": "^7.2.2",
+    "vite-plugin-compression": "^0.5.1",
+    "vitest": "^4.0.9"
   }
 }

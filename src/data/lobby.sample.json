@@ -1,0 +1,445 @@
+{
+  "games": [
+    {
+      "id": 1883,
+      "name": "Mines",
+      "mobile": false,
+      "desktop": false,
+      "playForFun": true,
+      "externalId": "mines",
+      "mobileExternalId": "mines",
+      "display": "SCALE_OUT",
+      "imageUrl": "https://nano-public.s3-eu-west-1.amazonaws.com/casino/images/spribe/mines.jpg",
+      "gameType": "OTHER",
+      "aspectRatio": "R_9_16",
+      "integration": "SPRIBE",
+      "studioId": 37,
+      "translations": [],
+      "releaseDate": 1619827200000,
+      "gameTags": [116, 119, 106],
+      "backgroundImageUrl": "",
+      "description": ""
+    },
+    {
+      "id": 8202,
+      "name": "B.U.C.K.S.",
+      "mobile": false,
+      "desktop": false,
+      "playForFun": true,
+      "externalId": "NGE-bucks",
+      "mobileExternalId": "NGE-bucks",
+      "display": "FIXED",
+      "imageUrl": "https://nano-public.s3-eu-west-1.amazonaws.com/casino/images/qtech/NGE-bucks.jpg",
+      "gameType": "SLOTS",
+      "aspectRatio": "R_16_9",
+      "integration": "QTECH",
+      "studioId": 106,
+      "translations": [],
+      "releaseDate": 1627893555000,
+      "gameTags": [110],
+      "backgroundImageUrl": "https://nano-public.s3-eu-west-1.amazonaws.com/casino/images/qtech/NGE-bucks-bg.jpg",
+      "description": ""
+    },
+    {
+      "id": 8352,
+      "name": "Ganesha Boost",
+      "mobile": false,
+      "desktop": false,
+      "playForFun": true,
+      "externalId": "240",
+      "mobileExternalId": "240",
+      "display": "FIXED",
+      "imageUrl": "//cdn36892.betsrv.com/games/banner_240_en.jpg?ts=1629708978121",
+      "gameType": "SLOTS",
+      "aspectRatio": "R_16_9",
+      "integration": "BOOONGO",
+      "studioId": 6,
+      "translations": [
+        {
+          "id": 861,
+          "language": "zh",
+          "name": "招财金象神-集鸿运",
+          "imageUrl": "//cdn36892.betsrv.com/games/banner_240_zh.jpg?ts=1629872933657"
+        },
+        {
+          "id": 863,
+          "language": "zh-hant",
+          "name": "招財金象神-集鴻運",
+          "imageUrl": "//cdn36892.betsrv.com/games/banner_240_zh-hant.jpg?ts=1629872948652"
+        },
+        {
+          "id": 862,
+          "language": "th",
+          "name": "พระพิฆเนศนำโชค-ลัคกี้",
+          "imageUrl": "//cdn36892.betsrv.com/games/banner_240_th.jpg?ts=1629872941659"
+        }
+      ],
+      "releaseDate": 1631145600000,
+      "gameTags": [110],
+      "backgroundImageUrl": "https://nano-public.s3-eu-west-1.amazonaws.com/casino/images/booongo/ganesha-boost-bg.jpg",
+      "description": ""
+    },
+    {
+      "id": 4628,
+      "name": "Booming Bananas",
+      "mobile": false,
+      "desktop": false,
+      "playForFun": true,
+      "externalId": "bmg_booming_bananas",
+      "mobileExternalId": "bmg_booming_bananas",
+      "display": "FIXED",
+      "imageUrl": "https://cdn.hub88.io/booming/Booming-Bananas-Logo.jpg",
+      "gameType": "SLOTS",
+      "aspectRatio": "R_16_9",
+      "integration": "HUB88",
+      "studioId": 57,
+      "translations": [],
+      "releaseDate": 1521072000000,
+      "gameTags": [110],
+      "description": ""
+    },
+    {
+      "id": 3883,
+      "name": "The Golden Inn",
+      "mobile": false,
+      "desktop": false,
+      "playForFun": true,
+      "externalId": "30411",
+      "mobileExternalId": "30411",
+      "display": "FIXED",
+      "imageUrl": "https://nano-public.s3-eu-west-1.amazonaws.com/casino/images/nucleus/30411.jpg",
+      "gameType": "SLOTS",
+      "aspectRatio": "R_16_9",
+      "integration": "NUCLEUS",
+      "studioId": 10,
+      "translations": [],
+      "releaseDate": 1614250552000,
+      "gameTags": [110],
+      "backgroundImageUrl": "https://nano-public.s3-eu-west-1.amazonaws.com/casino/images/nucleus/30411-bg.jpg",
+      "description": ""
+    }
+  ],
+  "studios": [
+    {
+      "id": 4,
+      "name": "Cubeia",
+      "externalId": "CUBEIA",
+      "integration": "CUBEIA",
+      "enabled": true,
+      "imageUrl": "https://nano-public.s3-eu-west-1.amazonaws.com/casino/images/studios/cubeia.png",
+      "blockedCountries": "",
+      "allowedCountries": "",
+      "blockedCurrencies": "",
+      "lobbyOrder": 1000,
+      "icon": "cubeia",
+      "popular": false
+    },
+    {
+      "id": 5,
+      "name": "Playson",
+      "externalId": "2",
+      "integration": "BOOONGO",
+      "enabled": true,
+      "imageUrl": "https://nano-public.s3-eu-west-1.amazonaws.com/casino/images/studios/playson.png",
+      "blockedCountries": "US,UK",
+      "allowedCountries": "",
+      "blockedCurrencies": "",
+      "lobbyOrder": 0,
+      "icon": "playson",
+      "popular": false
+    },
+    {
+      "id": 6,
+      "name": "Booongo",
+      "externalId": "1",
+      "integration": "BOOONGO",
+      "enabled": true,
+      "imageUrl": "https://nano-public.s3-eu-west-1.amazonaws.com/casino/images/studios/booongo.png",
+      "blockedCountries": "US,UK",
+      "allowedCountries": "",
+      "blockedCurrencies": "",
+      "lobbyOrder": 0,
+      "icon": "booongo",
+      "popular": false
+    }
+  ],
+  "tags": [
+    {
+      "id": 103,
+      "name": "Video Poker",
+      "nameId": "video_poker",
+      "display": false,
+      "translations": {}
+    },
+    {
+      "id": 104,
+      "name": "Bingo",
+      "nameId": "bingo",
+      "display": false,
+      "translations": {}
+    },
+    {
+      "id": 105,
+      "name": "Table Games",
+      "nameId": "table_games",
+      "display": true,
+      "translations": {
+        "sv": "Bordsspel"
+      }
+    },
+    {
+      "id": 106,
+      "name": "Provably Fair",
+      "nameId": "provably_fair",
+      "display": true,
+      "translations": {}
+    },
+    {
+      "id": 107,
+      "name": "Roulette",
+      "nameId": "roulette",
+      "display": true,
+      "translations": {}
+    },
+    {
+      "id": 109,
+      "name": "Baccarat",
+      "nameId": "baccarat",
+      "display": true,
+      "translations": {}
+    },
+    {
+      "id": 110,
+      "name": "Slots",
+      "nameId": "slots",
+      "display": false,
+      "translations": {}
+    },
+    {
+      "id": 111,
+      "name": "Megaways",
+      "nameId": "megaways",
+      "display": true,
+      "translations": {}
+    },
+    {
+      "id": 112,
+      "name": "Live Casino",
+      "nameId": "live_casino",
+      "display": true,
+      "translations": {}
+    },
+    {
+      "id": 113,
+      "name": "Keno",
+      "nameId": "keno",
+      "display": false,
+      "translations": {}
+    },
+    {
+      "id": 114,
+      "name": "Jackpot",
+      "nameId": "jackpot",
+      "display": true,
+      "translations": {}
+    },
+    {
+      "id": 115,
+      "name": "Virtual Sports",
+      "nameId": "virtual_sports",
+      "display": false,
+      "translations": {}
+    },
+    {
+      "id": 116,
+      "name": "Arcade Games",
+      "nameId": "arcade_games",
+      "display": false,
+      "translations": {}
+    }
+  ],
+  "currencies": [
+    {
+      "integration": "BOOONGO",
+      "currencies": [
+        "BNB",
+        "BTC",
+        "DOGE",
+        "EUR",
+        "GOLD",
+        "LTC",
+        "MBC",
+        "mBTC",
+        "mETH",
+        "mLTC",
+        "NANO",
+        "NOK",
+        "SEK",
+        "THB",
+        "uBTC",
+        "USD",
+        "USDT",
+        "XCC",
+        "XMB",
+        "XRP"
+      ],
+      "studioId": 5
+    },
+    {
+      "integration": "BOOONGO",
+      "currencies": [
+        "BNB",
+        "BTC",
+        "DOGE",
+        "EUR",
+        "GOLD",
+        "LTC",
+        "MBC",
+        "mBTC",
+        "mETH",
+        "mLTC",
+        "NANO",
+        "NOK",
+        "SEK",
+        "THB",
+        "uBTC",
+        "USD",
+        "USDT",
+        "XCC",
+        "XMB",
+        "XRP"
+      ],
+      "studioId": 6
+    },
+    {
+      "integration": "SPRIBE",
+      "currencies": [
+        "BNB",
+        "BTC",
+        "DOGE",
+        "EUR",
+        "GOLD",
+        "LTC",
+        "MBC",
+        "mBTC",
+        "mETH",
+        "mLTC",
+        "NANO",
+        "NOK",
+        "SEK",
+        "THB",
+        "uBTC",
+        "USD",
+        "USDT",
+        "XCC",
+        "XMB",
+        "XRP"
+      ],
+      "studioId": 37
+    },
+    {
+      "integration": "CUBEIA",
+      "currencies": [
+        "BNB",
+        "BTC",
+        "DOGE",
+        "EUR",
+        "GOLD",
+        "LTC",
+        "MBC",
+        "mBTC",
+        "mETH",
+        "mLTC",
+        "NANO",
+        "NOK",
+        "SEK",
+        "THB",
+        "uBTC",
+        "USD",
+        "USDT",
+        "XCC",
+        "XMB",
+        "XRP"
+      ],
+      "studioId": 4
+    },
+    {
+      "integration": "HUB88",
+      "currencies": [
+        "BNB",
+        "BTC",
+        "DOGE",
+        "EUR",
+        "GOLD",
+        "LTC",
+        "MBC",
+        "mBTC",
+        "mETH",
+        "mLTC",
+        "NANO",
+        "NOK",
+        "SEK",
+        "THB",
+        "uBTC",
+        "USD",
+        "USDT",
+        "XCC",
+        "XMB",
+        "XRP"
+      ],
+      "studioId": 49
+    },
+    {
+      "integration": "HUB88",
+      "currencies": [
+        "BNB",
+        "BTC",
+        "DOGE",
+        "EUR",
+        "GOLD",
+        "LTC",
+        "MBC",
+        "mBTC",
+        "mETH",
+        "mLTC",
+        "NANO",
+        "NOK",
+        "SEK",
+        "THB",
+        "uBTC",
+        "USD",
+        "USDT",
+        "XCC",
+        "XMB",
+        "XRP"
+      ],
+      "studioId": 50
+    },
+    {
+      "integration": "HUB88",
+      "currencies": [
+        "BNB",
+        "BTC",
+        "DOGE",
+        "EUR",
+        "GOLD",
+        "LTC",
+        "MBC",
+        "mBTC",
+        "mETH",
+        "mLTC",
+        "NANO",
+        "NOK",
+        "SEK",
+        "THB",
+        "uBTC",
+        "USD",
+        "USDT",
+        "XCC",
+        "XMB",
+        "XRP"
+      ],
+      "studioId": 51
+    }
+  ]
+}

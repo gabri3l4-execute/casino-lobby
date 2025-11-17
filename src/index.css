@@ -30,6 +30,19 @@ body {
   min-height: 100vh;
 }
 
+/* Reserve scrollbar space to prevent layout shift when scrollbar appears. */
+@supports (scrollbar-gutter: stable) {
+  html {
+    scrollbar-gutter: stable;
+  }
+}
+@supports not (scrollbar-gutter: stable) {
+  /* Fallback for older browsers: always show vertical scrollbar space. */
+  html {
+    overflow-y: scroll;
+  }
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

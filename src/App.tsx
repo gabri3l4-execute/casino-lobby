@@ -1,15 +1,14 @@
-import reactLogo from "./assets/crown.svg";
+import { useEffect } from "react";
 import "./App.css";
+import Lobby from "./components/Lobby";
+import { purgeExpiredKeys } from "./utils/storageCleanUp";
 
 function App() {
-  return (
-    <>
-      <div>
-        <img src={reactLogo} className="logo crown" alt="React logo" />
-      </div>
-      <h1>Casino lobby</h1>
-    </>
-  );
+  useEffect(() => {
+    purgeExpiredKeys("local");
+    purgeExpiredKeys("session");
+  }, []);
+  return <Lobby />;
 }
 
 export default App;

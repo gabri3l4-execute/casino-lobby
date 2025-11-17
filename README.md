@@ -4,8 +4,6 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 ## React Compiler
 
@@ -71,3 +69,24 @@ export default defineConfig([
   },
 ])
 ```
+
+## Development
+
+Install dependencies and run dev server:
+
+```pwsh
+npm install
+npm run dev
+```
+
+You can supply an alternate lobby JSON URL via `.env` or `.env.local` using the key `VITE_LOBBY_URL` (see `.env.example`).
+
+## Production build
+
+Create a production build:
+
+```pwsh
+npm run build
+```
+
+The repo includes a simple GitHub Actions workflow at `.github/workflows/ci.yml` which runs type checks and a build on push/PR.
