@@ -123,7 +123,7 @@ If you'd like, I can:
 
 ---
 
-Generated: instructions to deploy `casino-lobby-v4` to Render (static or Node web service).
+Generated: instructions to deploy `casino-lobby` to Render (static or Node web service).
 
 **Uploading precompressed files to Amazon S3 (optional)**
 
