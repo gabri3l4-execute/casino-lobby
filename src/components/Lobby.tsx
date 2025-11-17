@@ -1,37 +1,46 @@
-import React, { lazy, useCallback, useEffect } from 'react';
-const Filters = lazy(() => import('./Filters'));
-import GameGrid from './GameGrid';
-import useLobbyData from '../hooks/useLobbyData';
-import useDerivedLobbyData from '../hooks/useDerivedLobbyData';
-import './Lobby.css';
-import { usePersistentState } from '../hooks/usePersistentState';
+import React, { lazy, useCallback, useEffect } from "react";
+const Filters = lazy(() => import("./Filters"));
+import GameGrid from "./GameGrid";
+import useLobbyData from "../hooks/useLobbyData";
+import useDerivedLobbyData from "../hooks/useDerivedLobbyData";
+import "./Lobby.css";
+import { usePersistentState } from "../hooks/usePersistentState";
+import CategoryBar from "./CategoryBar";
 
 const Lobby: React.FC = () => {
-  const { games, studios, tags, currencyEntries, loading, error } = useLobbyData();
+  const { games, studios, tags, currencyEntries, loading, error } =
+    useLobbyData();
 
   // Fixed currency list for the dropdown and expected default
-  const allowedCurrencies = ['EUR', 'USD', 'mBTC'];
+  const allowedCurrencies = ["EUR", "USD", "mBTC"];
   const [selectedCurrency, setSelectedCurrency] = usePersistentState<string>(
-    'selectedCurrency',
-    'EUR',
-    { type: 'local', fallback: true }
+    "selectedCurrency",
+    "EUR",
+    { type: "local", fallback: true }
   );
   const [selectedTagId, setSelectedTagId] = usePersistentState<number | null>(
-    'selectedTagId',
+    "selectedTagId",
     null,
-    { type: 'local', fallback: true }
+    { type: "local", fallback: true }
   );
-  const [selectedStudioId, setSelectedStudioId] = usePersistentState<number | null>(
-    'selectedStudioId',
-    null,
-    { type: 'local', fallback: true }
+  const [selectedStudioId, setSelectedStudioId] = usePersistentState<
+    number | null
+  >("selectedStudioId", null, { type: "local", fallback: true });
+
+  const handleCurrencyChange = useCallback(
+    (c: string) => setSelectedCurrency(c),
+    [setSelectedCurrency]
+  );
+  const handleTagChange = useCallback(
+    (id: number | null) => setSelectedTagId(id),
+    [setSelectedTagId]
+  );
+  const handleStudioChange = useCallback(
+    (id: number | null) => setSelectedStudioId(id),
+    [setSelectedStudioId]
   );
 
-  const handleCurrencyChange = useCallback((c: string) => setSelectedCurrency(c), [setSelectedCurrency]);
-  const handleTagChange = useCallback((id: number | null) => setSelectedTagId(id), [setSelectedTagId]);
-  const handleStudioChange = useCallback((id: number | null) => setSelectedStudioId(id), [setSelectedStudioId]);
-
-  const selectedCurrencyEffective = selectedCurrency || 'EUR';
+  const selectedCurrencyEffective = selectedCurrency || "EUR";
 
   const { visibleStudios, filteredGames } = useDerivedLobbyData({
     games,
@@ -44,13 +53,22 @@ const Lobby: React.FC = () => {
 
   // If the selected studio is no longer in the visible list (due to category change), clear it
   useEffect(() => {
-    if (selectedStudioId && !visibleStudios.some((s) => s.id === selectedStudioId)) {
+    if (
+      selectedStudioId &&
+      !visibleStudios.some((s) => s.id === selectedStudioId)
+    ) {
       setSelectedStudioId(null);
     }
   }, [selectedStudioId, visibleStudios, setSelectedStudioId]);
 
   return (
     <div className="lobby-container">
+      <CategoryBar
+        tags={tags}
+        selectedTagId={selectedTagId}
+        onTagChange={handleTagChange}
+      />
+
       <Filters
         currencies={allowedCurrencies}
         selectedCurrency={selectedCurrencyEffective}
